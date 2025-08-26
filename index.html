@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>+212+ CASE - Premium Phone Cases in Morocco</title>
+    <meta name="description" content="Premium phone cases made for Moroccans by professionals. Quality products with customer satisfaction guarantee.">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #111, #2c2c2c);
+            color: #fff;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 1rem;
+        }
+
+        nav a:hover {
+            color: #4ecdc4;
+            transform: translateY(-2px);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        nav a:hover::after {
+            width: 80%;
+        }
+
+        /* Mobile menu button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(17,17,17,0.8), rgba(44,44,44,0.8)), 
+                        url("images/home2.png") center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 120px 2rem 80px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: #fff;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease 0.4s both;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+        }
+
+        /* Products Section */
+        main {
+            padding-top: 80px;
+        }
+
+        #products {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border-radius: 2px;
+        }
+
+        .product-grid {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255, 107, 107, 0.05), rgba(78, 205, 196, 0.05));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .product-card:hover::before {
+            opacity: 1;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.1);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .product-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .product-price {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        .current-price {
+            color: #ff6b6b;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .discount-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(45deg, #ff6b6b, #e55353);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        /* About Section */
+        #about {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #fff, #f8f9fa);
+            text-align: center;
+        }
+
+        #about p {
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #111, #2c2c2c);
+            color: #fff;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Product Popup */
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        #overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .popup-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            transform: translateY(50px) scale(0.9);
+            transition: all 0.3s ease;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        #overlay.active .popup-card {
+            transform: translateY(0) scale(1);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #999;
+            transition: color 0.3s ease;
+        }
+
+        .close-btn:hover {
+            color: #ff6b6b;
+        }
+
+        #detail-img {
+            width: 100%;
+            max-width: 300px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 1rem;
+        }
+
+        #detail-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .options-section {
+            margin: 1.5rem 0;
+        }
+
+        .option-group {
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+
+        .option-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #555;
+        }
+
+        select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #4ecdc4;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .btn-cart {
+            background: linear-gradient(45deg, #333, #555);
+            color: #fff;
+        }
+
+        .btn-cart:hover {
+            background: linear-gradient(45deg, #555, #777);
+            transform: translateY(-2px);
+        }
+
+        .btn-buy {
+            background: linear-gradient(45deg, #ff6b6b, #e55353);
+            color: #fff;
+        }
+
+        .btn-buy:hover {
+            background: linear-gradient(45deg, #e55353, #d14545);
+            transform: translateY(-2px);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                padding: 0 1rem;
+            }
+
+            nav {
+                max-height: 0;
+                overflow: hidden;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #111;
+                flex-direction: column;
+                padding: 0 1rem; /* start collapsed */
+                box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+                transition: max-height 0.4s ease, padding 0.4s ease;
+            }
+
+            nav.active {
+                max-height: 300px; /* enough space for your 3 links */
+                padding: 1rem;     /* expands padding smoothly */
+            }
+
+
+
+            nav.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .popup-card {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 100px 1rem 60px;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+
+        /* Loading animation for images */
+        .product-image {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            0% {
+                background-position: 200% 0;
+            }
+            100% {
+                background-position: -200% 0;
+            }
+        }
+
+        .product-image[src]:not([src=""]) {
+            background: none;
+            animation: none;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Focus states for accessibility */
+        button:focus,
+        select:focus,
+        a:focus {
+            outline: 2px solid #4ecdc4;
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+        <div class="logo" style="display:inline-block;">
+            <a href="#home">
+                <img src="images/logo.png" 
+                    alt="+212+ CASE Logo" 
+                    style="
+                    height:80px; 
+                    width:80px; 
+                    border-radius:50%; 
+                    transition: all 0.3s ease; 
+                    "
+                    onmouseover="this.style.boxShadow='0 0 25px rgba(78,205,196,1)';"
+                    onmouseout="this.style.boxShadow='0 0 15px rgba(78,205,196,0.8)';">
+            </a>
+        </div>
+
+
+            <nav id="nav">
+                <a href="#home">HOME</a>
+                <a href="#products">OUR PRODUCTS</a>
+                <a href="#about">ABOUT US</a>
+            </nav>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h2>+212+ CASE</h2>
+        <p>Premium phone cases available everywhere in Morocco</p>
+        <a href="#products" class="cta-button">Shop Now</a>
+    </section>
+
+<!-- Products Section -->
+<main>
+    <section id="products">
+        <h2 class="section-title">Our Products</h2>
+        <ul class="product-grid">
+            <li>
+                <div class="product-card" onclick="openDetail('To order click on the WhatsApp button', 'images/iphone 1.jpg', '130 dh', '89 dh')">
+                    <div class="discount-badge">25% OFF</div>
+                    <img src="images/iphone 1.jpg" alt="Money case" class="product-image">
+                    <div class="product-info">
+                        <div class="product-name">Money case</div>
+                        <div class="product-price">
+                            <span class="old-price">130 dh</span>
+                            <span class="current-price">89 dh</span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="product-card" onclick="openDetail('To order click on the WhatsApp button', 'images/iphone 2.jpg', '130 dh', '89 dh')">
+                    <div class="discount-badge">25% OFF</div>
+                    <img src="images/iphone 2.jpg" alt="Crystal case" class="product-image">
+                    <div class="product-info">
+                        <div class="product-name">Crystal case</div>
+                        <div class="product-price">
+                            <span class="old-price">130 dh</span>
+                            <span class="current-price">89 dh</span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="product-card" onclick="openDetail('To order click on the WhatsApp button', 'images/iphone 3.jpg', '130 dh', '89 dh')">
+                    <div class="discount-badge">25% OFF</div>
+                    <img src="images/iphone 3.jpg" alt="Kiss case" class="product-image">
+                    <div class="product-info">
+                        <div class="product-name">Kiss case</div>
+                        <div class="product-price">
+                            <span class="old-price">130 dh</span>
+                            <span class="current-price">89 dh</span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="product-card" onclick="openDetail('To order click on the WhatsApp button', 'images/iphone 4.jpg', '130 dh', '89 dh')">
+                    <div class="discount-badge">25% OFF</div>
+                    <img src="images/iphone 4.jpg" alt="Beige heart case" class="product-image">
+                    <div class="product-info">
+                        <div class="product-name">Beige heart case</div>
+                        <div class="product-price">
+                            <span class="old-price">130 dh</span>
+                            <span class="current-price">89 dh</span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="product-card" onclick="openDetail('To order click on the WhatsApp button', 'images/iphone 5.jpg', '130 dh', '89 dh')">
+                    <div class="discount-badge">25% OFF</div>
+                    <img src="images/iphone 5.jpg" alt="Pink heart case" class="product-image">
+                    <div class="product-info">
+                        <div class="product-name">Pink heart case</div>
+                        <div class="product-price">
+                            <span class="old-price">130 dh</span>
+                            <span class="current-price">89 dh</span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="product-card" onclick="openDetail('To order click on the WhatsApp button', 'images/iphone 6.jpg', '130 dh', '89 dh')">
+                    <div class="discount-badge">25% OFF</div>
+                    <img src="images/iphone 6.jpg" alt="Coffee heart case" class="product-image">
+                    <div class="product-info">
+                        <div class="product-name">Coffee heart case</div>
+                        <div class="product-price">
+                            <span class="old-price">130 dh</span>
+                            <span class="current-price">89 dh</span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </section>
+</main>
+
+
+    <!-- if you want to add a new product copy from line 628 to 637 then change the basics that you need -->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->          <!-- IF YOU DON'T KNOW DON'T DO ANYTHING AND ASK ME ( DON'T ASK CHAT GPT)-->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About Us</h2>
+        <p>+212+ CASE is a premium brand made for Moroccans by professionals, ensuring complete customer satisfaction through quality products and exceptional service. We specialize in creating durable, stylish phone cases that protect your device while expressing your personal style.</p>
+    </section>
+
+    <!-- Footer -->
+<!-- Footer -->
+<footer>
+    <p>© 2025 +212+ CASE. All rights reserved. | Made by professionals in Morocco</p>
+    
+    <!-- Social Media Links -->
+    <div class="social-media">
+        <a href="https://www.instagram.com/phone.cases.morocco?igsh=ajk2dm5zc3R3MTY4" target="_blank" class="social-link">
+            <img src="images/instagram.png" alt="Instagram">
+        </a>
+        <a href="https://www.tiktok.com/@212.phone.cases?_t=ZS-8zBIQDAEwvx&_r=1" target="_blank" class="social-link">
+            <img src="images/tiktok.png" alt="TikTok">
+        </a>
+        <a href="https://wa.me/212770903483" target="_blank" class="social-link">
+            <img src="images/whatsaap.png" alt="WhatsApp">
+        </a>
+    </div>
+</footer>
+
+<style>
+/* Footer Social Media */
+footer {
+    background: linear-gradient(135deg, #111, #2c2c2c);
+    color: #fff;
+    text-align: center;
+    padding: 2rem 1rem;
+    font-size: 0.9rem;
+}
+
+.social-media {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.social-link {
+    display: inline-block;
+    background: #1c1c1c;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.social-link img {
+    width: 28px;
+    height: 28px;
+    display: block;
+}
+
+.social-link:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 12px rgba(78, 205, 196, 0.8);
+    background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+}
+
+.social-link:hover img {
+    filter: brightness(1.2);
+}
+</style>
+
+<!-- Product Popup -->
+<div id="overlay">
+    <div class="popup-card">
+        <button class="close-btn" onclick="closeDetail()">✖</button>
+        <img id="detail-img" src="" alt="Product Image">
+        <h2 id="detail-title"></h2>
+        
+        <div class="button-group">
+            <button class="btn btn-buy" onclick="buyNow()">
+                <img src="images/whatsaap.png" alt="WhatsApp" class="btn-icon">
+                Buy Now
+            </button>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Buy Now button styles */
+.btn-buy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem; /* space between icon and text */
+    background: linear-gradient(45deg, #25D366, #128C7E); /* WhatsApp green gradient */
+    color: #fff;
+    padding: 1rem 1.5rem;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 0 15px rgba(37, 211, 102, 0.5); /* soft glow */
+    transition: all 0.3s ease;
+}
+
+.btn-buy:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(37, 211, 102, 0.8); /* stronger glow on hover */
+}
+
+.btn-icon {
+    width: 24px;
+    height: 24px;
+}
+</style>
+
+<script>
+const products = {};
+
+function openDetail(title, img, oldPrice, currentPrice) {
+    document.getElementById("detail-title").textContent = title;
+    document.getElementById("detail-img").src = img;
+    document.getElementById("detail-img").alt = title;
+
+    // Store current product for Buy Now
+    products.current = { title, img, currentPrice };
+
+    const overlay = document.getElementById("overlay");
+    overlay.style.display = "flex";
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => overlay.classList.add("active"), 10);
+}
+
+function closeDetail() {
+    const overlay = document.getElementById("overlay");
+    overlay.classList.remove("active");
+    document.body.style.overflow = 'auto';
+    setTimeout(() => overlay.style.display = "none", 300);
+}
+
+function buyNow() {
+    if (!products.current) return;
+
+    const whatsappNumber = "212770903483"; 
+
+    // Message including product name and price
+    const message = `Hello, I would like to order from your website called +212+ phone case that is currently priced at 89 dh. Is it still available ?`;
+
+    const encodedMessage = encodeURIComponent(message);
+    window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, "_blank");
+}
+
+// Close popup when clicking outside
+document.getElementById('overlay').addEventListener('click', function(e) {
+    if (e.target === this) closeDetail();
+});
+
+// Close popup with Escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && document.getElementById('overlay').classList.contains('active')) {
+        closeDetail();
+    }
+});
+
+// ✅ Mobile menu toggle
+function toggleMobileMenu() {
+    const nav = document.getElementById("nav");
+    nav.classList.toggle("active");
+}
+
+</script>
